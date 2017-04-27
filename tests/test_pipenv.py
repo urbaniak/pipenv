@@ -43,6 +43,9 @@ class TestPipenv():
         assert delegator.run('pipenv lock').return_code == 0
 
         # Test uninstalling a package afte locking.
+        c =  delegator.run('pipenv uninstall Django')
+        print(c.out)
+        print(c.err)
         assert delegator.run('pipenv uninstall Django').return_code == 0
 
         pipfile_output = delegator.run('cat Pipfile').out
